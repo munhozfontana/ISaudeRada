@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { IndicadoresComponent } from './indicadores/indicadores.component';
 import { GraficosComponent } from './graficos/graficos.component';
 
+import { SuiModule } from 'ng2-semantic-ui';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { GraficosComponent } from './graficos/graficos.component';
     GraficosComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SuiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
