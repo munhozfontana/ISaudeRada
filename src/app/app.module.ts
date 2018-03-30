@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { IndicadoresComponent } from './indicadores/indicadores.component';
 import { GraficosComponent } from './graficos/graficos.component';
 
 import { SuiModule } from 'ng2-semantic-ui';
+import { routing } from './app.routing';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { SuiModule } from 'ng2-semantic-ui';
   ],
   imports: [
     BrowserModule,
-    SuiModule
+    SuiModule,
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
