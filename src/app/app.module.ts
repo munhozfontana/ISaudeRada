@@ -9,6 +9,7 @@ import { GraficosComponent } from './graficos/graficos.component';
 import { SuiModule } from 'ng2-semantic-ui';
 import { routing } from './app.routing';
 
+
 @NgModule({
   declarations: [
     AppComponent,
