@@ -15,6 +15,8 @@ export class IndicadoresComponent implements OnInit {
   line: any;
   dadosOnComponet: any;
   myPieChart: any;
+  myBarChart: any;
+  myRadarChart: any;
   
   constructor(private serviceEficiencia: IndicadoresService) { }
 
@@ -36,6 +38,7 @@ export class IndicadoresComponent implements OnInit {
       weatherDates.push(jsdate.toLocaleTimeString('en', { year: 'numeric', month: 'short', day: 'numeric'}))
     })
 
+    console.log(temp_max, temp_min)
 
     this.line = new Chart('canvas', {
       type: 'line',
@@ -43,20 +46,24 @@ export class IndicadoresComponent implements OnInit {
         labels: weatherDates,
         datasets: [
           {
-            data: temp_max,
+            data: temp_min,
             borderColor: '#3cba9f',
+            backgroundColor: '#3cba9f',
+            label: 'Label 1',
             fill: false
           },
           {
-            data: temp_min,
+            data: temp_max,
             borderColor: '#ffcc00',
-            fill: false
-          },
+            backgroundColor: '#ffcc00',
+            label: 'Label 2', 
+          fill: false
+          }
         ]
       },
       options: {
         legend: {
-          display: false
+          display: true
         },
         scales: {
           xAxes: [{
@@ -65,7 +72,8 @@ export class IndicadoresComponent implements OnInit {
           yAxes: [{
             display: true
           }]
-        }
+        },
+        maintainAspectRation: true
       }
     })
 
@@ -74,18 +82,53 @@ export class IndicadoresComponent implements OnInit {
       type: 'pie',
       data: {
         datasets: [{
-            data: [10, 20, 30],
+          data: temp_max,
+          backgroundColor: ['#3cba9f', '#ffcc00', '#58ACFA']
         }],
-    
-        // These labels appear in the legend and in the tooltips when hovering different arcs
+
         labels: [
             'Red',
-            'Yellow',
-            'Blue'
+            'Yellow'
         ]
     }
     
     });
+
+    this.myBarChart= new Chart('myBar', {
+      type: 'bar',
+      data: {
+        labels: weatherDates,
+        datasets: [
+          {
+            data: temp_min,
+            backgroundColor: '#3cba9f',
+            label: 'Label 1'
+          },
+          {
+            data: temp_max,
+          backgroundColor: '#ffcc00',
+          label: 'Label 2'
+          }
+        ]
+      }
+  });
+
+  this.myRadarChart = new Chart('myRadar', {
+    type: 'radar',
+    data: {
+      labels: ['Topo', 'Direita', 'Baixo', 'Esquerda'],
+      datasets: [{
+          data: temp_min,
+          backgroundColor: '#3cba9f',
+          label: 'Label 1'
+      },
+      {
+        data: temp_max,
+        backgroundColor: '#ffcc00',
+        label: 'Label 2'
+    }]
+  }
+});
     
   }
 
