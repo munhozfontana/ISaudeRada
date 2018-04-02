@@ -1,30 +1,63 @@
-
-
 <div class="ui stretched one column padded middle center aligned grid ">
-    <div class="fourteen wide column">
-        <div class="ui top attached demo menu">
-            <a class="item" (click)="sidebar.toggle()">
-                <i class="sidebar icon"></i> Menu
-            </a>
-        </div>
-        <sui-sidebar-container class="ui bottom attached segment">
-            <sui-sidebar class="inverted vertical" #sidebar>
-                <a (click)="sidebar.close()" class="item">Inicio</a>
-                <a (click)="sidebar.close();eficiencia('1')" class="item">Eficiência</a>
-                <a (click)="sidebar.close()" class="item">Eficácia</a>
-                <a (click)="sidebar.close()" class="item">Efetividade</a>
-                <a (click)="sidebar.close()" class="item">Qualidade</a>
-                <a (click)="sidebar.close()" class="item">Impactos-Efeitos</a>
-            </sui-sidebar>
-            <sui-sidebar-sibling [isDimmedWhenVisible]="true">
-        
-                <div class="chart-container" style="position: relative; height:10vh; width:30vw">
-                    <canvas  id="canvas">{{ line }}</canvas>
-                    <canvas id="asd">{{ myPieChart }}</canvas>
-                </div>
-            </sui-sidebar-sibling>
-        </sui-sidebar-container>
-
-    
+  <div class="fourteen wide column">
+    <div class="ui top attached demo menu">
+      <a class="item" (click)="sidebar.toggle()">
+        <i class="sidebar icon"></i> Menu
+      </a>
     </div>
+    <sui-sidebar-container class="ui bottom attached segment">
+      <sui-sidebar class="inverted vertical" #sidebar>
+        <a (click)="sidebar.close()" class="item">Inicio</a>
+        <a (click)="sidebar.close();eficiencia('1')" class="item">Eficiência</a>
+        <a (click)="sidebar.close()" class="item">Eficácia</a>
+        <a (click)="sidebar.close()" class="item">Efetividade</a>
+        <a (click)="sidebar.close()" class="item">Qualidade</a>
+        <a (click)="sidebar.close()" class="item">Impactos-Efeitos</a>
+      </sui-sidebar>
+      <sui-sidebar-sibling [isDimmedWhenVisible]="true">
+
+        <div class="ui container">
+          <div class="ui stackable three column grid">
+            <div class="column">
+              <button class="fluid ui violet button">Seletor 1</button>
+            </div>
+            <div class="column">
+              <button class="fluid ui violet button">Seletor 2</button>
+            </div>
+            <div class="column">
+              <button class="fluid ui violet button">Seletor 3</button>
+            </div>
+            <div class="column">
+              <button class="fluid ui violet button">Seletor 4</button>
+            </div>
+            <div class="column">
+              <button class="fluid ui violet button">Seletor 5</button>
+            </div>
+            <div class="column">
+              <button class="fluid ui violet button">Seletor 6</button>
+            </div>
+          </div>
+          <div class="ui padded segment">
+            <div class="ui stackable two column grid">
+              <div class="column">
+                <canvas id="canvas" height="100vw" width="200vw">{{ line }}</canvas>
+              </div>
+              <div class="column">
+                <canvas id="asd" height="100vw" width="200vw">{{ myPieChart }}</canvas>
+              </div>
+              <div class="column">
+                <canvas id="myBar" height="100vw" width="200vw">{{ bar }}</canvas>
+              </div>
+              <div class="column">
+                <canvas id="myRadar" height="100vw" width="200vw">{{ myPieChart }}</canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </sui-sidebar-sibling>
+    </sui-sidebar-container>
+
+
+  </div>
 </div>
